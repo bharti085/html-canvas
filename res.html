@@ -5,46 +5,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-  background-color: #ededed;
-}
-
-.canvasMain {
-  padding-left: 100px;
-  width: auto;
-}
-
-.sidenav {
-  width: 100px;
-  position: fixed;
-  top: 40px;
-  left: 0px;
-}
-
-.sidenav button {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.3.0/fabric.min.js"></script>
+</head>
+<style>
+    .sidenav button {
   padding-top: 10px;
   margin-top: 10px;
   border: 1px solid #75E6DA;
   font-size: 20px;
-  width: 100px;
   color: #189AB4;
-  display: block;
+  width: 100px;
+  /* position: fixed; */
+  height: 100%;
+  overflow: auto;
+  /* display: block; */
 }
 
 .sidenav button:hover {
   color: #75E6DA;
 }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.3.0/fabric.min.js"></script>
-</head>
+
+/* 
+.sidenav {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: black;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+ .sidenav button {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidenav button.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sidenav button:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+@media screen and (max-width: 700px) {
+  .sidenav {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidenav button {float: left;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidenav button{
+    text-align: center;
+    float: none;
+  }
+}  */
+
+.canvasMain {
+  padding-left: 100px;
+  width: auto;
+}
+</style>
 <body>
     <div class="canvasMain">
         <p>Try Drawing below </p>
         
       <div class="sidenav">
         <button onclick="toggleDraw()">Draw &#9998;</button>
-        <button onclick="createRectangle()">Rectangle &#9982;</button>
+        <button onclick="createRectangle()">Rectangle</button>
         <button onclick="createCircle()">Circle </button>
         <button onclick="createTriangle()">Triangle </button>
         <button onclick="createTextbox()"> Text box</button>
@@ -53,36 +88,26 @@
         <button onclick="SaveObject()">Save</button>
         
       </div>
-            <canvas id="demoCanvas" height="400px" width="400px"></canvas>
+            <canvas id="demoCanvas" media="max-width: 1500px"></canvas>
+            
     </div>
 </body>
+
 <script>
-    const myCanvas = new fabric.Canvas("demoCanvas", {
-  width: window.innerWidth - 200,
-  height: window.innerHeight - 100,
-  backgroundColor: "white",
-  isDrawingMode: false,
-  allowTouchScrolling:true
-});
+   const myCanvas = new fabric.Canvas("demoCanvas", {
+    
+    width: window.innerWidth,
+height: window.innerHeight,
+backgroundColor: "white",
+isDrawingMode: false,
+allowTouchScrolling:true
+   });
+ 
 
 
-// window.onload=function() 
-// {resizeCanvas();
-//     }
-// window.onresize =function() {
-// console.log('resizing.');
-// resizeCanvas();
-// }
-// function resizeCanvas() {
-// myCanvas.width = window.innerWidth;
-// myCanvas.height = window.innerHeight;
-// }
-
-
-const toggleDraw = () => {
+   const toggleDraw = () => {
   myCanvas.set({ isDrawingMode: !myCanvas.get("isDrawingMode") });
 };
-
 var rect = new fabric.Rect({
  top: 100,
  left: 150,
@@ -95,8 +120,6 @@ var rect = new fabric.Rect({
  selectable:false
 });
 myCanvas.add(rect);
-
-
 const createRectangle = () => {
   const rectangle = new fabric.Rect({
     width: 100,
@@ -155,6 +178,5 @@ const SaveObject = () => {
   }
 
 };
-
 </script>
 </html>
