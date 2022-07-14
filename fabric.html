@@ -58,8 +58,10 @@
 </body>
 <script>
     const myCanvas = new fabric.Canvas("demoCanvas", {
-  width: window.innerWidth - 200,
-  height: window.innerHeight - 100,
+  // width: window.innerWidth - 200,
+  // height: window.innerHeight - 100,
+  width:screen.availWidth,
+  height:screen.availHeight,
   backgroundColor: "white",
   isDrawingMode: false,
   allowTouchScrolling:true
