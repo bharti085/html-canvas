@@ -16,7 +16,7 @@
 }
 
 .sidenav {
-  width: 100px;
+  width: 80px;
   position: fixed;
   top: 40px;
   left: 0px;
@@ -26,8 +26,8 @@
   padding-top: 10px;
   margin-top: 10px;
   border: 1px solid #75E6DA;
-  font-size: 20px;
-  width: 100px;
+  font-size: 15px;
+  width: 800px;
   color: #189AB4;
   display: block;
 }
@@ -60,8 +60,8 @@
     const myCanvas = new fabric.Canvas("demoCanvas", {
   // width: window.innerWidth - 200,
   // height: window.innerHeight - 100,
-  width:screen.availWidth,
-  height:screen.availHeight,
+  width:200,
+  height:screen.400,
   backgroundColor: "white",
   isDrawingMode: false,
   allowTouchScrolling:true
@@ -85,18 +85,18 @@ const toggleDraw = () => {
   myCanvas.set({ isDrawingMode: !myCanvas.get("isDrawingMode") });
 };
 
-var rect = new fabric.Rect({
- top: 100,
- left: 150,
-// width :window.innerWidth,
-// height : window.innerHeight,
- width: 850,
- height: 400,
- fill:'',
- stroke: 'red',
- selectable:false
-});
-myCanvas.add(rect);
+// var rect = new fabric.Rect({
+//  top: 100,
+//  left: 150,
+// // width :window.innerWidth,
+// // height : window.innerHeight,
+//  width: 850,
+//  height: 400,
+//  fill:'',
+//  stroke: 'red',
+//  selectable:false
+// });
+// myCanvas.add(rect);
 
 
 const createRectangle = () => {
