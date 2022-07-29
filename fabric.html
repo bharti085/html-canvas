@@ -37,6 +37,7 @@
 }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.3.0/fabric.min.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 </head>
 <body>
     <div class="canvasMain">
@@ -44,9 +45,10 @@
         
       <div class="sidenav">
         <button onclick="toggleDraw()">Draw &#9998;</button>
-        <button onclick="createRectangle()">Rectangle &#9982;</button>
+        <button onclick="createRectangle()">Rooms</button>
+        <button onclick="createDoors()">Doors/<br>Windows</button>
         <button onclick="createCircle()">Circle </button>
-        <button onclick="createTriangle()">Triangle </button>
+        <button onclick="createTriangle()">Access point</button>
         <button onclick="createTextbox()"> Text box</button>
         
         <button onclick="deleteObject()">Delete &#10006</button>
@@ -97,7 +99,14 @@ const toggleDraw = () => {
 //  selectable:false
 // });
 // myCanvas.add(rect);
+var grid = 5;
 
+// create grid
+
+for (var i = 0; i < (600 / grid); i++) {
+  myCanvas.add(new fabric.Line([ i * grid, 0, i * grid, 600], { stroke: '#ccc', selectable: false }));
+  myCanvas.add(new fabric.Line([ 0, i * grid, 600, i * grid], { stroke: '#ccc', selectable: false }))
+}
 
 const createRectangle = () => {
   const rectangle = new fabric.Rect({
@@ -109,6 +118,16 @@ const createRectangle = () => {
     
   });
   myCanvas.add(rectangle);
+};
+const createDoors = () => {
+  const doors = new fabric.Rect({
+    width: 10,
+    height: 5,
+    fill: 'grey', 
+    stroke: 'black',
+    
+  });
+  myCanvas.add(doors);
 };
 const createCircle = () => {
 		// Initiate a Circle instance
