@@ -171,7 +171,8 @@ const SaveObject = () => {
   //}
   { const a= document.createElement("a") 
     a.href = myCanvas.toDataURL();
-    a.download = "canvas-image.png";
+    let fileName = prompt("Save file as...");
+    a.download = fileName+".png";
     a.click();
   }
 
