@@ -151,6 +151,17 @@ const createTriangle = () => {
       lockScalingX:true,
       lockScalingY:true
         });
+	triangle.setControlsVisibility({
+         mt: false, 
+         mb: false, 
+         ml: false, 
+         mr: false, 
+         bl: false,
+         br: false, 
+         tl: false, 
+         tr: false,
+         mtr: false, 
+    });
         myCanvas.add(triangle);
 };
 const createTextbox = () => {
