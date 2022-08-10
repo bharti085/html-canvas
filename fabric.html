@@ -44,10 +44,10 @@
         <p>Try Drawing below (Drag the canvas using the grey side borders)</p>
         
       <div class="sidenav">
-        <button onclick="toggleDraw()">Draw &#9998;</button>
+<!--         <button onclick="toggleDraw()">Draw &#9998;</button> -->
         <button onclick="createRectangle()">Rooms</button>
         <button onclick="createDoors()">Doors/<br>Windows</button>
-        <button onclick="createCircle()">Circle </button>
+<!--         <button onclick="createCircle()">Circle </button> -->
         <button onclick="createTriangle()">Access point</button>
         <button onclick="createTextbox()"> Text box</button>
         
@@ -83,9 +83,9 @@
 // }
 
 
-const toggleDraw = () => {
-  myCanvas.set({ isDrawingMode: !myCanvas.get("isDrawingMode") });
-};
+// const toggleDraw = () => {
+//   myCanvas.set({ isDrawingMode: !myCanvas.get("isDrawingMode") });
+// };
 
 // var rect = new fabric.Rect({
 //  top: 100,
@@ -166,7 +166,8 @@ const createTriangle = () => {
 };
 const createTextbox = () => {
   const textbox = new fabric.Textbox("Write here",{
-    width : 200,
+    width : 100,
+    fontSize: 20,
   });
   myCanvas.add(textbox);
 };
